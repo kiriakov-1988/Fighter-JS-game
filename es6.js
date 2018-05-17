@@ -9,7 +9,7 @@ class Fighter {
 
     setDamage(damage) {
         this.health = this.health - damage;
-        console.log(this.name,'`s health: ', this.health);
+        console.log(`${this.name}\`s health: ${this.health}`);
     }
 
     hit(enemy, point) {
@@ -25,31 +25,31 @@ class ImprovedFighter extends Fighter {
 
 function fight(fighter, improvedFighter,  ...point) {
 
-    console.log(fighter.name, '    power: ', fighter.power, '    health: ', fighter.health);
-    console.log(improvedFighter.name, '    power: ', improvedFighter.power, '    health: ', improvedFighter.health);
+    console.log(`${fighter.name}    power: ${fighter.power}    health: ${fighter.health}`);
+    console.log(`${improvedFighter.name}    power: ${improvedFighter.power}    health: ${improvedFighter.health}`);
     console.log(''); console.log('');
 
     for (let i = 0, n = point.length; i < n; i++) {
 
-        console.log('ROUND ', i+1, '    POINTS: ', point[i]);
+        console.log(`ROUND ${i+1}    POINTS: ${point[i]}`);
 
-        console.log(fighter.name, ' hits ', point[i] * fighter.power);
+        console.log(`${fighter.name} hits ${point[i] * fighter.power}`);
         fighter.hit(improvedFighter, point[i]);
 
         if (improvedFighter.health <= 0) {
             console.log(''); console.log('');
-            console.log(improvedFighter.name, ' DEAD');
-            console.log(fighter.name, ' win with health: ', fighter.health);
+            console.log(`${improvedFighter.name} DEAD`);
+            console.log(`${fighter.name} win with health: ${fighter.health}`);
             break;
         }
 
-        console.log(improvedFighter.name, ' hits ', point[i] * improvedFighter.power);
+        console.log(`${improvedFighter.name} hits ${point[i] * improvedFighter.power}`);
         improvedFighter.doubleHit(fighter, point[i]);
 
         if (fighter.health <= 0) {
             console.log(''); console.log('');
-            console.log(fighter.name, ' DEAD');
-            console.log(improvedFighter.name, ' win with health: ', improvedFighter.health);
+            console.log(`${fighter.name} DEAD`);
+            console.log(`${improvedFighter.name} win with health: ${improvedFighter.health}`);
             break;
         }
 
@@ -57,7 +57,7 @@ function fight(fighter, improvedFighter,  ...point) {
 
         if (i === n-1) {
             console.log(''); console.log('----------------');
-            console.log(fighter.name, ' and ', improvedFighter.name, ' SURVIVED :)');
+            console.log(`${fighter.name} and ${improvedFighter.name} SURVIVED :)`);
         }
     }
 }
