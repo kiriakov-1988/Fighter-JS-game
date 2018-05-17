@@ -1,7 +1,7 @@
 "use strict";
 
 class Fighter {
-    constructor(name, power, health) {
+    constructor(name, power = 10, health = 100) {
         this.name = name;
         this.power = power;
         this.health = health;
