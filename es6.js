@@ -1,7 +1,7 @@
 "use strict";
 
 class Fighter {
-    constructor(name, power = 10, health = 100) {
+    constructor(name, power = 15, health = 1000) {
         this.name = name;
         this.power = power;
         this.health = health;
@@ -43,7 +43,7 @@ function fight(fighter, improvedFighter,  ...point) {
             break;
         }
 
-        console.log(`${improvedFighter.name} hits ${point[i] * improvedFighter.power}`);
+        console.log(`${improvedFighter.name} hits ${point[i] * 2 * improvedFighter.power}`);
         improvedFighter.doubleHit(fighter, point[i]);
 
         if (fighter.health <= 0) {
@@ -75,3 +75,17 @@ let improvedFighter = new ImprovedFighter('Dog', randomInteger(4, 13), randomInt
 
 
 fight(fighter, improvedFighter, randomInteger(1, 45), randomInteger(1, 5), randomInteger(5, 13), randomInteger(13, 45));
+
+console.log('--------------------------');
+
+let gamer1 = new Fighter('gamer1');
+let gamer2 = new ImprovedFighter('gamer2', randomInteger(4, 10));
+
+let values = [25, 13, 45];
+
+values.forEach(function (element) {
+    if (gamer1.health > 0 && gamer2.health > 0) {
+        console.log(''); console.log('=================');
+        fight(gamer1, gamer2, element)
+    }
+})
